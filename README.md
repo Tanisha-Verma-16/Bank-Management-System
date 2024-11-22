@@ -1,6 +1,3 @@
-Here’s a sample **README.md** for your project, detailing the functionality of the Banking Management System, the requirements, and instructions on how to run the application and tests.
-
----
 
 # Banking Management System
 
