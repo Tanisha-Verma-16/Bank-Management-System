@@ -50,7 +50,7 @@ A simple banking management system built using Python and Tkinter for GUI. This 
 1. **Run the GUI application**:
    In your terminal, navigate to the project directory and run the main Python script:
    ```bash
-   python banking_system_gui.py
+   python banking_gui.py
    ```
    This will open a GUI window where you can log in as an **Admin** or a **Customer** and perform the following actions:
    - **Admin**: Create, delete, and view accounts.
@@ -69,7 +69,7 @@ To ensure everything is working as expected, you can run the provided test suite
 1. **Run tests using pytest**:
    Navigate to the project directory and run the tests:
    ```bash
-   pytest test_banking_management_system.py
+   pytest test_banking_system.py
    ```
 
 2. **Expected Output**:
@@ -78,7 +78,7 @@ To ensure everything is working as expected, you can run the provided test suite
    ============================== test session starts ==============================
    collected 20 items
 
-   test_banking_management_system.py ....................                   [100%]
+   test_banking_system.py ....................                   [100%]
 
    =============================== 20 passed in 0.50s ==============================
    ```
@@ -88,9 +88,9 @@ To ensure everything is working as expected, you can run the provided test suite
 ```
 banking_system/
 │
-├── banking_system_gui.py         # Main GUI application
+├── banking_gui.py         # Main GUI application
 ├── banking_management_system.py  # Core system logic (BankAccount, FixedDepositAccount, LoanAccount)
-├── test_banking_management_system.py  # Test cases for the system
+├── test_banking_system.py  # Test cases for the system
 ├── README.md                     # Project documentation
 └── requirements.txt               # (Optional) List of dependencies
 ```
