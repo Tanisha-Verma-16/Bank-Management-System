@@ -1,8 +1,5 @@
-Here’s the updated **README.md** for the current version of your Banking Management System:
-
----
-
 # Banking Management System
+---
 
 A Python-based GUI application built using Tkinter that simulates a banking management system. The system features an **Admin Portal** for account creation and management and a **Customer Portal** for banking transactions, loan management, and transaction history.
 
@@ -144,4 +141,3 @@ The Banking Management System provides a user-friendly interface for managing cu
 
 ---
 
-This README now accurately reflects the current state of the system and its features. Let me know if there’s anything else you’d like to add! 🚀
