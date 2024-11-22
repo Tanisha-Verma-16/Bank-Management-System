@@ -1,35 +1,42 @@
+Here’s the updated **README.md** for the current version of your Banking Management System:
+
+---
 
 # Banking Management System
 
-A simple banking management system built using Python and Tkinter for GUI. This system allows users to create accounts, deposit and withdraw money, apply for loans, and view account details. It also features an **Admin Portal** for managing accounts and a **Customer Portal** for banking transactions.
+A Python-based GUI application built using Tkinter that simulates a banking management system. The system features an **Admin Portal** for account creation and management and a **Customer Portal** for banking transactions, loan management, and transaction history.
 
 ## Features
-- **Account Management:**
-  - Create new accounts with an initial deposit.
-  - Deposit money into accounts.
-  - Withdraw money from accounts.
-  - Display account details.
 
-- **Fixed Deposit Accounts:**
-  - Create fixed deposit accounts with a specified interest rate and duration.
-  - Calculate maturity amount after the specified duration.
+### **Admin Portal**  
+Admins can:
+- Log in using a secure password (`admin123`).
+- Create new accounts for customers with an initial deposit.
+- Delete existing customer accounts.
+- View a list of all customer accounts.
 
-- **Loan Management:**
-  - Apply for a loan.
-  - Calculate the total payable amount for the loan based on interest rate and duration.
+### **Customer Portal**  
+Customers can:
+- Log in using their **account number** (provided by the admin at the time of account creation).
+- Perform transactions:
+  - Deposit money.
+  - Withdraw money.
+- Apply for loans:
+  - Specify the loan amount, interest rate, and duration.
+  - View the total payable amount and loan details.
+- View transaction history, including deposits and withdrawals.
+- View loans they have applied for.
 
-- **Admin Portal:**
-  - Admins can create and delete accounts.
-  - Admins can view all accounts in the system.
-
-- **Customer Portal:**
-  - Customers can manage their accounts (deposit, withdraw, and apply for loans).
+### **Loan Management**  
+- Customers can apply for loans with specified terms.
+- Admin can manage customer accounts, enabling loan eligibility.
 
 ## Requirements
 
-- Python 3.x
-- Tkinter (comes pre-installed with most Python distributions)
-- pytest (for running tests)
+- **Python 3.x**  
+- **Tkinter** (pre-installed with most Python distributions)
+- **CSV Module** (for database storage, included in Python)
+- **pytest** (for testing)
 
 ## Installation
 
@@ -40,40 +47,40 @@ A simple banking management system built using Python and Tkinter for GUI. This 
    ```
 
 2. **Install dependencies**:
-   If you don't have `pytest` installed, you can install it using pip:
+   Install `pytest` for running the test suite:
    ```bash
    pip install pytest
    ```
 
 ## Running the Application
 
-1. **Run the GUI application**:
-   In your terminal, navigate to the project directory and run the main Python script:
+1. **Start the Application**:
+   Run the main Python script:
    ```bash
    python banking_gui.py
    ```
-   This will open a GUI window where you can log in as an **Admin** or a **Customer** and perform the following actions:
-   - **Admin**: Create, delete, and view accounts.
-   - **Customer**: Create accounts, deposit, withdraw, and apply for loans.
 
-2. **Login Credentials**:
-   - **Admin Login**: 
-     - Password: `admin123`
-   - **Customer Login**: 
-     - You can create new accounts and manage them.
+2. **Login Options**:
+   - **Admin Login**:  
+     Click "Login as Admin" and enter the password `admin123` to access the Admin Portal.  
+   - **Customer Login**:  
+     Click "Login as Customer" and enter a valid **account number** to access the Customer Portal.
+
+3. **Features**:
+   - Admin can create/delete accounts and view all accounts.
+   - Customers can deposit, withdraw, view transaction history, apply for loans, and view applied loans.
 
 ## Running the Tests
 
-To ensure everything is working as expected, you can run the provided test suite with `pytest`.
+To verify the system’s functionality, run the test suite.
 
-1. **Run tests using pytest**:
-   Navigate to the project directory and run the tests:
+1. **Run tests**:
    ```bash
    pytest test_banking_system.py
    ```
 
 2. **Expected Output**:
-   If all tests pass, you should see something like:
+   All tests should pass, producing output similar to:
    ```bash
    ============================== test session starts ==============================
    collected 20 items
@@ -89,41 +96,52 @@ To ensure everything is working as expected, you can run the provided test suite
 banking_system/
 │
 ├── banking_gui.py         # Main GUI application
-├── banking_management_system.py  # Core system logic (BankAccount, FixedDepositAccount, LoanAccount)
-├── test_banking_system.py  # Test cases for the system
-├── README.md                     # Project documentation
-└── requirements.txt               # (Optional) List of dependencies
+├── banking_management_system.py  # Core system logic (BankAccount, LoanAccount)
+├── accounts.csv           # Database of customer accounts
+├── loans.csv              # Database of customer loans
+├── test_banking_system.py # Test cases for the system
+├── README.md              # Project documentation
+└── requirements.txt       # Dependencies for the project
 ```
 
-## Description of Classes and Methods
+## Description of Key Classes
 
-### 1. **BankAccount Class**
-- Handles creation, deposit, withdrawal, and account details for a standard bank account.
+### 1. **BankAccount Class**  
+- **Purpose**: Handles basic bank account operations.  
+- **Features**:
+  - Deposits and withdrawals.
+  - Stores and displays account holder details and balance.
+  - Records transaction history.
 
-### 2. **FixedDepositAccount Class** (Inherits `BankAccount`)
-- Manages fixed deposit accounts with interest rates and durations.
-- **Methods**:
-  - `calculate_maturity_amount`: Calculates maturity amount after the specified duration.
-  - `display_fixed_deposit_details`: Displays account details along with maturity amount.
+### 2. **LoanAccount Class**  
+- **Purpose**: Handles loan details and calculations.  
+- **Features**:
+  - Stores loan amount, interest rate, and duration.
+  - Calculates the total payable amount.
 
-### 3. **LoanAccount Class**
-- Manages loan accounts with loan amounts, interest rates, and durations.
-- **Methods**:
-  - `calculate_total_payable`: Calculates the total amount to be paid for the loan after interest.
-  - `display_loan_details`: Displays loan account details.
+### 3. **BankingManagementSystem Class**  
+- **Purpose**: Manages all customer accounts and loans.  
+- **Features**:
+  - Create, delete, and fetch accounts.
+  - Save and load account and loan data from CSV files.
+  - Manage loans applied by customers.
 
-### 4. **BankingManagementSystem Class**
-- Manages all accounts, fixed deposits, and loan accounts.
-- **Methods**:
-  - `create_account`: Creates a new bank account.
-  - `deposit`: Deposits money into an account.
-  - `withdraw`: Withdraws money from an account.
-  - `create_fixed_deposit`: Creates a fixed deposit account.
-  - `apply_for_loan`: Applies for a new loan.
-  - `display_all_accounts`: Displays all bank accounts.
+## CSV Databases
+
+- **accounts.csv**: Stores customer account data, including account holder name, account number, and balance.
+- **loans.csv**: Stores customer loan data, including borrower name, loan ID, loan amount, interest rate, and duration.
+
+## Future Enhancements
+
+- Implement more detailed reporting (e.g., monthly statements).
+- Add an interest calculation feature for savings accounts.
+- Improve security by encrypting sensitive data.
+- Add multi-user support with individual logins.
 
 ## Conclusion
 
-This Banking Management System provides a simple and intuitive interface for both customers and admins to manage bank accounts, fixed deposits, and loans. It can be extended further with additional features like transaction history, reports, and more complex account management functionalities.
+The Banking Management System provides a user-friendly interface for managing customer accounts and loans. It is designed with modularity in mind, making it easy to extend and adapt to additional requirements.
 
 ---
+
+This README now accurately reflects the current state of the system and its features. Let me know if there’s anything else you’d like to add! 🚀
