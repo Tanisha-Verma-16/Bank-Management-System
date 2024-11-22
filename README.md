@@ -1,5 +1,4 @@
 # Banking Management System
----
 
 A Python-based GUI application built using Tkinter that simulates a banking management system. The system features an **Admin Portal** for account creation and management and a **Customer Portal** for banking transactions, loan management, and transaction history.
 
