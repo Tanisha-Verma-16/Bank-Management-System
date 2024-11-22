@@ -126,10 +126,4 @@ banking_system/
 
 This Banking Management System provides a simple and intuitive interface for both customers and admins to manage bank accounts, fixed deposits, and loans. It can be extended further with additional features like transaction history, reports, and more complex account management functionalities.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
-
-This **README.md** provides clear instructions for running the banking system, interacting with the application, and running the tests. Feel free to modify the repository URL and any other relevant details specific to your project setup!
