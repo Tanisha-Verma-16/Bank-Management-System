@@ -240,7 +240,9 @@ class AdminPortal:
 
         tk.Button(root, text="Create Account", command=self.create_account).grid(row=1, column=0, padx=10, pady=10)
         tk.Button(root, text="View All Accounts", command=self.display_all_accounts).grid(row=1, column=1, padx=10, pady=10)
-        tk.Button(root, text="Logout", command=self.logout).grid(row=2, columnspan=2, padx=10, pady=10)
+        tk.Button(root, text="Approve Loan", command=self.approve_loan).grid(row=2, column=0, padx=10, pady=10)
+        tk.Button(root, text="Delete Account", command=self.delete_account).grid(row=2, column=1, padx=10, pady=10)
+        tk.Button(root, text="Logout", command=self.logout).grid(row=3, columnspan=2, padx=10, pady=10)
 
     def create_account(self):
         name = simpledialog.askstring("Create Account", "Enter Account Holder Name:")
@@ -252,6 +254,20 @@ class AdminPortal:
     def display_all_accounts(self):
         result = self.system.display_all_accounts()
         messagebox.showinfo("Accounts", result if result else "No accounts available.")
+
+    def approve_loan(self):
+        loan_account_number = simpledialog.askinteger("Approve Loan", "Enter Loan Account Number:")
+        loan = next((l for l in self.system.loans if l.loan_account_number == loan_account_number), None)
+        if loan:
+            messagebox.showinfo("Loan Approved", f"Loan for {loan.borrower_name} approved successfully.\n\n{loan.display_loan_details()}")
+        else:
+            messagebox.showerror("Error", "Loan account not found.")
+
+    def delete_account(self):
+        account_number = simpledialog.askinteger("Delete Account", "Enter Account Number:")
+        if account_number:
+            result = self.system.delete_account(account_number)
+            messagebox.showinfo("Result", result)
 
     def logout(self):
         self.root.destroy()
@@ -297,4 +313,3 @@ def customer_login(root, system):
 
 if __name__ == "__main__":
     main()
-
